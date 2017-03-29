@@ -146,11 +146,11 @@ public:
 		
 		// these variables store the linear and ang. speed
 		float lspd = 0.200;
-		float aspd = 0.250;
+		float aspd = 0.50;
 
 		geometry_msgs::Twist vel_msg;
 
-		cur_linear = smooth_speed(linear, aspd, 0.05);
+		smooth_speed(linear, aspd, 0.05);
 
 		vel_msg.linear.y = vel_msg.linear.z = 0;
 		vel_msg.angular.x = vel_msg.angular.y = 0;
@@ -160,7 +160,7 @@ public:
 		vel_pub_.publish(vel_msg);
 	}
 
-	float smooth_speed(int dir, float aspd, float accel) {
+	void smooth_speed(int dir, float aspd, float accel) {
 		if(cur_linear < (dir * aspd)) 
 		{
 			cur_linear += accel;
