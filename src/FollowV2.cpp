@@ -22,7 +22,7 @@ class Follow
 	// can have values -1, 0 or 1
 	int angular;
 	int linear;
-	int cur_linear;
+	float cur_linear;
 
 	// stores the coord of the ball
 	int ball_row, ball_col;
